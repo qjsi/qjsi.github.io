@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuldimates - Keep the Spirit High</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            padding: 1rem;
+        }
+        .calendar {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .events {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .event {
+            margin: 1rem 0;
+        }
+        .event-title {
+            font-weight: bold;
+        }
+        .vote-buttons button {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fuldimates</h1>
+        <p>Keep the Spirit High</p>
+    </header>
+    <main>
+        <div class="calendar">
+            <h2>My Calendar</h2>
+            <p>Here you can see all your appointments for the whole year.</p>
+            <!-- Simple calendar placeholder -->
+            <p>[Calendar Placeholder]</p>
+        </div>
+        <div class="events">
+            <h2>Upcoming Events</h2>
+            <div class="event">
+                <p class="event-title">Event 1 - July 10, 2024</p>
+                <div class="vote-buttons">
+                    <button onclick="vote('event1', 'yes')">Yes</button>
+                    <button onclick="vote('event1', 'no')">No</button>
+                    <button onclick="vote('event1', 'maybe')">Maybe</button>
+                </div>
+                <p>Votes: <span id="event1-votes">0 Yes, 0 No, 0 Maybe</span></p>
+            </div>
+            <div class="event">
+                <p class="event-title">Event 2 - August 20, 2024</p>
+                <div class="vote-buttons">
+                    <button onclick="vote('event2', 'yes')">Yes</button>
+                    <button onclick="vote('event2', 'no')">No</button>
+                    <button onclick="vote('event2', 'maybe')">Maybe</button>
+                </div>
+                <p>Votes: <span id="event2-votes">0 Yes, 0 No, 0 Maybe</span></p>
+            </div>
+        </div>
+    </main>
+    <script>
+        let votes = {
+            event1: { yes: 0, no: 0, maybe: 0 },
+            event2: { yes: 0, no: 0, maybe: 0 }
+        };
+
+        function vote(event, choice) {
+            votes[event][choice]++;
+            updateVotes(event);
+        }
+
+        function updateVotes(event) {
+            document.getElementById(event + '-votes').textContent = 
+                `${votes[event].yes} Yes, ${votes[event].no} No, ${votes[event].maybe} Maybe`;
+        }
+    </script>
+</body>
+</html>
